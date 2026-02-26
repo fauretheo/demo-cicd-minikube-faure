@@ -1,1 +1,1 @@
-# demo-cicd-minikube-faure
+# Mon projet CI/CD
