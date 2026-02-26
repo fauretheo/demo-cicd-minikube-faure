@@ -36,17 +36,3 @@ jobs:
 
       - name: Push sur Docker Hub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/mon-app:latest
-
-  deploiement-continu:
-    name: "CD — Deploy sur Minikube"
-    runs-on: ubuntu-latest
-    needs: integration-continue
-
-    steps:
-      - name: Checkout du code
-        uses: actions/checkout@v3
-
-      - name: Déploiement sur Kubernetes
-        run: |
-          kubectl apply -f k8s/deployment.yaml
-          kubectl apply -f k8s/service.yaml
